@@ -1,5 +1,16 @@
 print('===== DESAFIO 83 =====')
-exp = []
-exp.append(input('Digite sua expressão: '))
-abre = exp.count()
-print(abre)
+exp = str(input('Digite sua expressão: '))
+pilha = []
+for simb in exp:
+    if simb == '(':
+        pilha.append('(')
+    elif simb == ')':
+        if len(pilha) > 0:
+            pilha.pop()
+        else:
+            pilha.append(')')
+            break
+if len(pilha) == 0:
+    print('Sua expressão está válida!')
+else:
+    print('Sua expressão está inválida!')
